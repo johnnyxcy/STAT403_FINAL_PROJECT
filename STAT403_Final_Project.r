@@ -84,7 +84,7 @@ for (k in 1:nisp) {
   print(cur_isp)
 }
 
-ggplot(upload_diff, aes(as.numeric(diff), fill=isp)) + geom_histogram(position='identity',
+ggplot(upload_diff, aes(as.numeric(diff), fill=isp)) + geom_histogram(position='stack',
                                                           stat='bin',
                                                           bins=50) +
   ggtitle('Distribution of Bootstrap Median for Upload') + 
@@ -104,7 +104,7 @@ for (k in 1:nisp) {
   print(cur_isp)
 }
 
-ggplot(download_diff, aes(as.numeric(diff), fill=isp)) + geom_histogram(position='identity',
+ggplot(download_diff, aes(as.numeric(diff), fill=isp)) + geom_histogram(position='stack',
                                                                       stat='bin',
                                                                       bins=50) +
   ggtitle('Distribution of Bootstrap Median for Download') + 
