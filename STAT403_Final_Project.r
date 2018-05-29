@@ -131,7 +131,7 @@ atlas.plt <- ggplot(Atlas.up, aes(diff)) + geom_histogram(aes(y=..density..),
   geom_vline(xintercept=ci[1], linetype='dashed', col='blue') +
   geom_vline(xintercept=ci[2], linetype='dashed', col='blue') +
   geom_vline(xintercept=0, linetype='longdash', col='red') +
-  ggtitle('Distribution of upload speed for Atlas') +
+  ggtitle('Atlas') + xlab('Difference of upload speed') +
   theme(plot.title = element_text(hjust = 0.5))
 
 ci <- quantile(Case.up$diff, prob=c(0.025, 0.975))
@@ -142,7 +142,7 @@ case.plt <- ggplot(Case.up, aes(diff)) + geom_histogram(aes(y=..density..),
   geom_vline(xintercept=ci[1], linetype='dashed', col='blue') +
   geom_vline(xintercept=ci[2], linetype='dashed', col='blue') +
   geom_vline(xintercept=0, linetype='longdash', col='red') +
-  ggtitle('Distribution of upload speed for Casecade') +
+  ggtitle('Casecade') + xlab('Difference of upload speed') +
   theme(plot.title = element_text(hjust = 0.5))
 
 ci <- quantile(Cent.up$diff, prob=c(0.025, 0.975))
@@ -153,7 +153,7 @@ cent.plt <- ggplot(Cent.up, aes(diff)) + geom_histogram(aes(y=..density..),
   geom_vline(xintercept=ci[1], linetype='dashed', col='blue') +
   geom_vline(xintercept=ci[2], linetype='dashed', col='blue') +
   geom_vline(xintercept=0, linetype='longdash', col='red') +
-  ggtitle('Distribution of upload speed for Centurylink') +
+  ggtitle('Centurylink') + xlab('Difference of upload speed') +
   theme(plot.title = element_text(hjust = 0.5))
 
 ci <- quantile(Com.up$diff, prob=c(0.025, 0.975))
@@ -164,7 +164,7 @@ com.plt <- ggplot(Com.up, aes(diff)) + geom_histogram(aes(y=..density..),
   geom_vline(xintercept=ci[1], linetype='dashed', col='blue') +
   geom_vline(xintercept=ci[2], linetype='dashed', col='blue') +
   geom_vline(xintercept=0, linetype='longdash', col='red') +
-  ggtitle('Distribution of upload speed for Comcast') +
+  ggtitle('Comcast') + xlab('Difference of upload speed') +
   theme(plot.title = element_text(hjust = 0.5))
 
 ci <- quantile(Front.up$diff, prob=c(0.025, 0.975))
@@ -175,7 +175,7 @@ front.plt <- ggplot(Front.up, aes(diff)) + geom_histogram(aes(y=..density..),
   geom_vline(xintercept=ci[1], linetype='dashed', col='blue') +
   geom_vline(xintercept=ci[2], linetype='dashed', col='blue') +
   geom_vline(xintercept=0, linetype='longdash', col='red') +
-  ggtitle('Distribution of upload speed for Frontier') +
+  ggtitle('Frontier') + xlab('Difference of upload speed') +
   theme(plot.title = element_text(hjust = 0.5))
 
 ci <- quantile(Wave.up$diff, prob=c(0.025, 0.975))
@@ -186,7 +186,7 @@ wave.plt <- ggplot(Wave.up, aes(diff)) + geom_histogram(aes(y=..density..),
   geom_vline(xintercept=ci[1], linetype='dashed', col='blue') +
   geom_vline(xintercept=ci[2], linetype='dashed', col='blue') +
   geom_vline(xintercept=0, linetype='longdash', col='red') +
-  ggtitle('Distribution of upload speed for Wave') +
+  ggtitle('Wave') + xlab('Difference of upload speed') +
   theme(plot.title = element_text(hjust = 0.5))
 
 ci <- quantile(Other.up$diff, prob=c(0.025, 0.975))
@@ -197,11 +197,99 @@ other.plt <- ggplot(Other.up, aes(diff)) + geom_histogram(aes(y=..density..),
   geom_vline(xintercept=ci[1], linetype='dashed', col='blue') +
   geom_vline(xintercept=ci[2], linetype='dashed', col='blue') +
   geom_vline(xintercept=0, linetype='longdash', col='red') +
-  ggtitle('Distribution of upload speed for Other') +
+  ggtitle('Other') + xlab('Difference of upload speed') +
   theme(plot.title = element_text(hjust = 0.5))
 
 grid.arrange(atlas.plt, case.plt, cent.plt, com.plt, front.plt, wave.plt, other.plt,
              nrow=4)
 
+# download
+Atlas.down <- filter(download_diff, isp=='Atlas')
+Case.down <- filter(download_diff, isp=='Casecade')
+Cent.down <- filter(download_diff, isp=='Centurylink')
+Com.down <- filter(download_diff, isp=='Comcast')
+Front.down <- filter(download_diff, isp=='Frontier')
+Wave.down <- filter(download_diff, isp=='Wave')
+Other.down <- filter(download_diff, isp=='Other')
+
+ci <- quantile(Atlas.down$diff, prob=c(0.025, 0.975))
+atlas.plt <- ggplot(Atlas.down, aes(diff)) + geom_histogram(aes(y=..density..),
+                                                          bins=20,
+                                                          col='black', fill='cornsilk3') +
+  geom_density(fill='red', alpha=0.2) +
+  geom_vline(xintercept=ci[1], linetype='dashed', col='blue') +
+  geom_vline(xintercept=ci[2], linetype='dashed', col='blue') +
+  geom_vline(xintercept=0, linetype='longdash', col='red') +
+  ggtitle('Atlas') + xlab('Difference of download speed') +
+  theme(plot.title = element_text(hjust = 0.5))
+
+ci <- quantile(Case.down$diff, prob=c(0.025, 0.975))
+case.plt <- ggplot(Case.down, aes(diff)) + geom_histogram(aes(y=..density..),
+                                                        bins=20,
+                                                        col='black', fill='cornsilk3') +
+  geom_density(fill='red', alpha=0.2) +
+  geom_vline(xintercept=ci[1], linetype='dashed', col='blue') +
+  geom_vline(xintercept=ci[2], linetype='dashed', col='blue') +
+  geom_vline(xintercept=0, linetype='longdash', col='red') +
+  ggtitle('Casecade') + xlab('Difference of download speed') +
+  theme(plot.title = element_text(hjust = 0.5))
+
+ci <- quantile(Cent.down$diff, prob=c(0.025, 0.975))
+cent.plt <- ggplot(Cent.down, aes(diff)) + geom_histogram(aes(y=..density..),
+                                                        bins=20,
+                                                        col='black', fill='cornsilk3') +
+  geom_density(fill='red', alpha=0.2) +
+  geom_vline(xintercept=ci[1], linetype='dashed', col='blue') +
+  geom_vline(xintercept=ci[2], linetype='dashed', col='blue') +
+  geom_vline(xintercept=0, linetype='longdash', col='red') +
+  ggtitle('Centurylink') + xlab('Difference of download speed') +
+  theme(plot.title = element_text(hjust = 0.5))
+
+ci <- quantile(Com.down$diff, prob=c(0.025, 0.975))
+com.plt <- ggplot(Com.down, aes(diff)) + geom_histogram(aes(y=..density..),
+                                                      bins=20,
+                                                      col='black', fill='cornsilk3') +
+  geom_density(fill='red', alpha=0.2) +
+  geom_vline(xintercept=ci[1], linetype='dashed', col='blue') +
+  geom_vline(xintercept=ci[2], linetype='dashed', col='blue') +
+  geom_vline(xintercept=0, linetype='longdash', col='red') +
+  ggtitle('Comcast') + xlab('Difference of download speed') +
+  theme(plot.title = element_text(hjust = 0.5))
+
+ci <- quantile(Front.down$diff, prob=c(0.025, 0.975))
+front.plt <- ggplot(Front.down, aes(diff)) + geom_histogram(aes(y=..density..),
+                                                          bins=20,
+                                                          col='black', fill='cornsilk3') +
+  geom_density(fill='red', alpha=0.2) +
+  geom_vline(xintercept=ci[1], linetype='dashed', col='blue') +
+  geom_vline(xintercept=ci[2], linetype='dashed', col='blue') +
+  geom_vline(xintercept=0, linetype='longdash', col='red') +
+  ggtitle('Frontier') + xlab('Difference of download speed') +
+  theme(plot.title = element_text(hjust = 0.5))
+
+ci <- quantile(Wave.down$diff, prob=c(0.025, 0.975))
+wave.plt <- ggplot(Wave.down, aes(diff)) + geom_histogram(aes(y=..density..),
+                                                        bins=20,
+                                                        col='black', fill='cornsilk3') +
+  geom_density(fill='red', alpha=0.2) +
+  geom_vline(xintercept=ci[1], linetype='dashed', col='blue') +
+  geom_vline(xintercept=ci[2], linetype='dashed', col='blue') +
+  geom_vline(xintercept=0, linetype='longdash', col='red') +
+  ggtitle('Wave') + xlab('Difference of download speed') +
+  theme(plot.title = element_text(hjust = 0.5))
+
+ci <- quantile(Other.down$diff, prob=c(0.025, 0.975))
+other.plt <- ggplot(Other.down, aes(diff)) + geom_histogram(aes(y=..density..),
+                                                          bins=20,
+                                                          col='black', fill='cornsilk3') +
+  geom_density(fill='red', alpha=0.2) +
+  geom_vline(xintercept=ci[1], linetype='dashed', col='blue') +
+  geom_vline(xintercept=ci[2], linetype='dashed', col='blue') +
+  geom_vline(xintercept=0, linetype='longdash', col='red') +
+  ggtitle('Other') + xlab('Difference of download speed') +
+  theme(plot.title = element_text(hjust = 0.5))
+
+grid.arrange(atlas.plt, case.plt, cent.plt, com.plt, front.plt, wave.plt, other.plt,
+             nrow=4)
 
 
