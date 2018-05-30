@@ -14,12 +14,12 @@ dat[which(dat$isp_user=='Atlas Networks'),]$isp <- 'Atlas'
 dat[which(dat$isp_user=='Atlas Internet'),]$isp <- 'Atlas'
 dat[which(dat$isp_user=='AtlasOnNet'),]$isp <- 'Atlas'
 
-dat[which(dat$isp_user=='Cascadelink Gigabit'),]$isp <- 'Casecade'
-dat[which(dat$isp_user=='Cascadelink Gigabit Internet'),]$isp <- 'Casecade'
-dat[which(dat$isp_user=='Cascadelink'),]$isp <- 'Casecade'
-dat[which(dat$isp_user=='Cascade Link'),]$isp <- 'Casecade'
-dat[which(dat$isp_user=='Cascadelink Gig'),]$isp <- 'Casecade'
-dat[which(dat$isp_user=='cascadelink'),]$isp <- 'Casecade'
+dat[which(dat$isp_user=='Cascadelink Gigabit'),]$isp <- 'Cascade'
+dat[which(dat$isp_user=='Cascadelink Gigabit Internet'),]$isp <- 'Cascade'
+dat[which(dat$isp_user=='Cascadelink'),]$isp <- 'Cascade'
+dat[which(dat$isp_user=='Cascade Link'),]$isp <- 'Cascade'
+dat[which(dat$isp_user=='Cascadelink Gig'),]$isp <- 'Cascade'
+dat[which(dat$isp_user=='cascadelink'),]$isp <- 'Cascade'
 
 dat[which(dat$isp_user=='centurylink'),]$isp <- 'Centurylink'
 
